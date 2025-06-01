@@ -22,6 +22,6 @@ phone-level-freq-masking/
 ├── data/ 
 │   ├── sample data/                   # Whisper/Normal samples
 │   └── sample masked/                 # Masked files examples (300Hz, 1500Hz) 
-├── README.md                          # Main documentation 
-├── LICENSE                            # License information 
-├── requirements.txt                   # Python dependencies  ```
+├── README.md                          
+├── LICENSE                             
+├── requirements.txt                   
