@@ -1,4 +1,4 @@
-# Phone-Aware-Low-Frequency-Masking
+# Phone-Aware-Low-Frequency-Masking (PALF)
 A repository for experiments and code used in my MSc thesis at University of Groningen, focused on phone-aware low-frequency masking as an data augmentation method for whispered and normal speech recognition.
 
 # file structure
