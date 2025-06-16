@@ -1,5 +1,5 @@
-# phone-level-frequency-masking
-A repository for experiments and code used in my MSc thesis at University of Groningen, focused on phone-level frequency masking for whispered and normal speech recognition.
+# Phone-Aware-Low-Frequency-Masking
+A repository for experiments and code used in my MSc thesis at University of Groningen, focused on phone-aware low-frequency masking as an data augmentation method for whispered and normal speech recognition.
 
 # file structure
 ```
