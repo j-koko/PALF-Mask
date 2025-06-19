@@ -6,7 +6,7 @@ A repository for experiments and code used in my MSc thesis at University of Gro
 phone-level-freq-masking/ 
 ├── frequency_masking/ 
 │   ├── PALF-Mask.py                   # Main masking script 
-│   ├── specaugment.py                 # Manual SpecAugment implementation 
+│   ├── specaugment.py                 
 │   └── README.md                       
 ├── pre_processing_helpers/ 
 │   ├── check_all_phonemes.py          # Phoneme coverage checker 
