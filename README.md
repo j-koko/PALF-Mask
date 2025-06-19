@@ -5,7 +5,7 @@ A repository for experiments and code used in my MSc thesis at University of Gro
 ```
 phone-level-freq-masking/ 
 ├── frequency_masking/ 
-│   ├── low_frequency_masking.py       # Main masking script 
+│   ├── PALF-Mask.py                   # Main masking script 
 │   ├── specaugment.py                 # Manual SpecAugment implementation 
 │   └── README.md                       
 ├── pre_processing_helpers/ 
@@ -15,7 +15,10 @@ phone-level-freq-masking/
 ├── fine_tuning/ 
 │   ├── finetune_whisper.py            # Whisper fine-tuning script 
 │   └── README.md                      
-├── evaluation/ 
+├── evaluation/
+│   ├── WER
+│   ├── CER 
+│   ├── MAPSSWE 
 │   ├── evaluate_checkpoints.py        # Evaluate WER and MAPSSWE testing 
 │   ├── sample_comparison.py           # Compare whisper outputs with ground truth for selected samples 
 │   └── README.md                       
