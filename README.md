@@ -16,14 +16,14 @@ The final model fine-tuned with the **F0-Mask** policy is available on Hugging F
 PALF-Mask/
 ├── low_frequency_masking/ # Core augmentation methods
 │ ├── PALF-Mask.py # Main masking script
-│ └── specaugment.py # SpecAugment reference
+│ └── 
 ├── pre_processing_helpers/ # Data preprocessing utilities
-│ ├── check_all_phonemes.py
-│ └── prepare_augmented_dataset.py
+│ ├── 
+│ └── 
 ├── fine_tuning/
 │ └── finetune_whisper.py # Whisper fine-tuning pipeline
 ├── evaluation/
-│ ├── evaluate_checkpoints.py # WER + MAPSSWE evaluation
+│ ├── 
 │ ├── WER/, CER/, MAPSSWE/ # Evaluation outputs
 ├── requirements.txt
 ├── LICENSE
@@ -40,7 +40,7 @@ PALF-Mask/
 
 ## Status
 
-**Documentation under construction** – All main scripts are included and functional. Detailed module-level documentation will follow shortly.
+**Documentation under construction** – Main scripts are included and functional. Detailed module-level documentation and preprocessing tools will follow shortly.
 ---
 
 ## License
