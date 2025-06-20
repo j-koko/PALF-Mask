@@ -6,7 +6,7 @@ This repository contains the code and experiments supporting my MSc thesis at th
 
 The final model fine-tuned with the **F0-Mask** policy is available on Hugging Face:
 
-👉 [Kokowski/whisper-small-f0-mask]([https://huggingface.co/your-model-url](https://huggingface.co/jankoko/PALF-Whisper-small))
+👉 [Kokowski/whisper-small-f0-mask](https://huggingface.co/jankoko/PALF-Whisper-small)
 
 ---
 
