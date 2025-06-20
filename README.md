@@ -40,7 +40,7 @@ PALF-Mask/
 
 ## Status
 
-**Documentation under construction** – Main scripts are included and functional. Detailed module-level documentation and preprocessing tools will follow shortly.
+Documentation under construction - Main scripts are included and functional. Detailed module-level documentation and preprocessing tools will follow shortly.
 ---
 
 ## License
