@@ -13,31 +13,21 @@ The final model fine-tuned with the **F0-Mask** policy is available on Hugging F
 ## Repository Structure
 
 ```
-phone-level-freq-masking/ 
-├── frequency_masking/ 
-│   ├── PALF-Mask.py                   # Main masking script 
-│   ├── specaugment.py                 
-│   └── README.md                       
-├── pre_processing_helpers/ 
-│   ├── check_all_phonemes.py          # Phoneme coverage checker 
-│   ├── prepare_augmented_dataset.py   # Prepare masked datasets (300Hz, 1500Hz) 
-│   └── README.md                      # Module documentation 
-├── fine_tuning/ 
-│   ├── finetune_whisper.py            # Whisper fine-tuning script 
-│   └── README.md                      
+PALF-Mask/
+├── low_frequency_masking/ # Core augmentation methods
+│ ├── PALF-Mask.py # Main masking script
+│ └── specaugment.py # SpecAugment reference
+├── pre_processing_helpers/ # Data preprocessing utilities
+│ ├── check_all_phonemes.py
+│ └── prepare_augmented_dataset.py
+├── fine_tuning/
+│ └── finetune_whisper.py # Whisper fine-tuning pipeline
 ├── evaluation/
-│   ├── WER
-│   ├── CER 
-│   ├── MAPSSWE 
-│   ├── evaluate_checkpoints.py        # Evaluate WER and MAPSSWE testing 
-│   ├── sample_comparison.py           # Compare whisper outputs with ground truth for selected samples 
-│   └── README.md                       
-├── data/ 
-│   ├── sample data/                   # Whisper/Normal samples
-│   └── sample masked/                 # Masked files examples (300Hz, 1500Hz) 
-├── README.md                          
-├── LICENSE                             
+│ ├── evaluate_checkpoints.py # WER + MAPSSWE evaluation
+│ ├── WER/, CER/, MAPSSWE/ # Evaluation outputs
 ├── requirements.txt
+├── LICENSE
+└── README.md
 ```
 
 ## What’s Included
