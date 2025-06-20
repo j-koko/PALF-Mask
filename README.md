@@ -46,4 +46,14 @@ Documentation under construction - Main scripts are included and functional. Det
 ## License
 
 This project is licensed under the MIT License.
-                
+
+## Cite this work
+
+If you use this code or model, please cite the accompanying thesis:
+
+> Kokowski, J. (2025). *F0-Based Masking Policies for Self-Supervised Whispered Speech Recognition*. Master’s Thesis, University of Groningen, Campus Fryslân. **(To appear)**
+
+The thesis will be publicly available soon at:  
+[https://campus-fryslan.studenttheses.ub.rug.nl/view/degree_programme/voice=5Ftechnology.html](https://campus-fryslan.studenttheses.ub.rug.nl/view/degree_programme/voice=5Ftechnology.html)  
+Please cite once it is available.
+              
