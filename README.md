@@ -1,7 +1,17 @@
-# Phone-Aware-Low-Frequency-Masking (PALF)
-A repository for experiments and code used in my MSc thesis at University of Groningen, focused on phone-aware low-frequency masking as a data augmentation method for whispered and normal speech recognition.
+# Phone-Aware Low-Frequency Masking (PALF)
 
-# file structure
+This repository contains the code and experiments supporting my MSc thesis at the University of Groningen. The project introduces **phone-aware low-frequency masking (PALF-Mask)** as a data augmentation method to improve **whispered and normal speech recognition** using fine-tuned versions of OpenAI’s Whisper model.
+
+### 🔗 Hugging Face Model
+
+The final model fine-tuned with the **F0-Mask** policy is available on Hugging Face:
+
+👉 [Kokowski/whisper-small-f0-mask]([https://huggingface.co/your-model-url](https://huggingface.co/jankoko/PALF-Whisper-small))
+
+---
+
+## Repository Structure
+
 ```
 phone-level-freq-masking/ 
 ├── frequency_masking/ 
@@ -27,4 +37,23 @@ phone-level-freq-masking/
 │   └── sample masked/                 # Masked files examples (300Hz, 1500Hz) 
 ├── README.md                          
 ├── LICENSE                             
-├── requirements.txt                   
+├── requirements.txt
+```
+
+## What’s Included
+
+- **PALF-Mask.py**: Implements low-frequency spectrogram masking for specific phoneme classes
+- **Fine-tuning pipeline**: Full Whisper-small fine-tuning setup with support for dynamic SpecAugment
+- **Evaluation**: WER, MAPSSWE, and CER scoring with reproducible output generation
+
+---
+
+## Status
+
+**Documentation under construction** – All main scripts are included and functional. Detailed module-level documentation will follow shortly.
+---
+
+## License
+
+This project is licensed under the MIT License.
+                
