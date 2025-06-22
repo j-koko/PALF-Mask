@@ -1,0 +1,11 @@
+// Mapping of experiment names to model checkpoint paths.
+// These will be used to generate predictions and references in sclite format.
+// The experiment name is used as the filename prefix in the output.
+// You can use local paths to checkpoint directories or Hugging Face model IDs.
+
+{
+  "wn_noaug": "results_eval/wn_noaug/checkpoint-1500",
+  "specaugment_ld": "results_eval/specaugment_ld/checkpoint-1500",
+  "aug_voiced_300_lb": "results_eval/aug_voiced_300_lb/checkpoint-1500",
+  "openai_whisper_small": "openai/whisper-small"
+}
