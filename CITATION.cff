@@ -6,7 +6,7 @@ authors:
     given-names: Jan
 date-released: 2025-06-20
 version: "1.0.0"
-repository-code: https://github.com/yourusername/PALF-Mask
+repository-code: https://github.com/j-koko/PALF-Mask
 url: https://huggingface.co/jankoko/PALF-Whisper-small
 license: MIT
 type: software
