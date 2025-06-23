@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite the following work:"
-title: "PALF-Mask: Phoneme-Aware Low-Frequency Masking for Whispered Speech Recognition"
+title: "PALF-Mask: Phone-Aware Low-Frequency Masking for Whispered Speech Recognition"
 authors:
   - family-names: Kokowski
     given-names: Jan
