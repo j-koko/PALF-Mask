@@ -15,10 +15,10 @@ This repository contains the code and experiments supporting my MSc thesis at th
 
 ```
 PALF-Mask/
-├── low_frequency_masking/               # Core augmentation methods
+├── low_frequency_masking/               
 │   └── PALF-Mask.py                     # Main masking script implementing F0/F1/LF masking
 ├── pre_processing_helpers/             # Data preprocessing utilities
-│   └── preprocessing.py                # Functions for loading, cleaning, and aligning input data
+│   └── preprocessing.py                # Loads wTIMIT audio and transcriptions, cleans, splits into train/dev/test
 ├── fine_tuning/
 │   └── finetune_whisper.py             # Whisper fine-tuning pipeline with Hugging Face Trainer
 ├── evaluation/
@@ -26,6 +26,7 @@ PALF-Mask/
 │   ├── config.json                     # Mapping of experiment names to model checkpoints
 │   ├── generate_sclite_inputs.py       # Generate `.ref` and `.hyp` files for sclite evaluation
 │   └── README.md
+├── CITATION.cff # Machine-readable citation metadata (for GitHub)
 ├── requirements.txt
 ├── LICENSE
 └── README.md
@@ -52,9 +53,6 @@ This project is licensed under the MIT License.
 
 If you use this code or model, please cite the accompanying thesis:
 
-> Kokowski, J. (2025). *F0-Based Masking Policies for Self-Supervised Whispered Speech Recognition*. Master’s Thesis, University of Groningen, Campus Fryslân. **(To appear)**
-
-The thesis will be publicly available soon at:  
-[https://campus-fryslan.studenttheses.ub.rug.nl/view/degree_programme/voice=5Ftechnology.html](https://campus-fryslan.studenttheses.ub.rug.nl/view/degree_programme/voice=5Ftechnology.html)  
-Please cite once it is available.
+> Kokowski, J. (2025). *F0-Based Masking Policies for Self-Supervised Whispered Speech Recognition*. Master’s Thesis, University of Groningen, Campus Fryslân.  
+> Available at: [https://campus-fryslan.studenttheses.ub.rug.nl/id/eprint/674](https://campus-fryslan.studenttheses.ub.rug.nl/id/eprint/674)
               
