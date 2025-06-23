@@ -40,12 +40,9 @@ PALF-Mask/
 - **Preprocessing Utilities**: Tools for wTIMIT-specific audio and transcript loading, cleaning, and train/dev/test split creation.
 - **Prediction and Evaluation Tools**: Utilities for generating predictions and references across multiple models using JSON configuration, with outputs prepared for `sclite` evaluation.
 
----
-
 ## Status
 
 Documentation under construction - Main scripts are included and functional. Detailed module-level documentation will follow shortly.
----
 
 ## License
 
