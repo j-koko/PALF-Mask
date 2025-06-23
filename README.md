@@ -15,17 +15,17 @@ This repository contains the code and experiments supporting my MSc thesis at th
 
 ```
 PALF-Mask/
-├── low_frequency_masking/ # Core augmentation methods
-│ ├── PALF-Mask.py # Main masking script
-│ └── 
-├── pre_processing_helpers/ # Data preprocessing utilities
-│ ├── 
-│ └── 
+├── low_frequency_masking/               # Core augmentation methods
+│   └── PALF-Mask.py                     # Main masking script implementing F0/F1/LF masking
+├── pre_processing_helpers/             # Data preprocessing utilities
+│   └── preprocessing.py                # Functions for loading, cleaning, and aligning input data
 ├── fine_tuning/
-│ └── finetune_whisper.py # Whisper fine-tuning pipeline
+│   └── finetune_whisper.py             # Whisper fine-tuning pipeline with Hugging Face Trainer
 ├── evaluation/
-│ ├── 
-│ ├── WER/, CER/, MAPSSWE/ # Evaluation outputs
+│   ├── WER/, CER/, MAPSSWE/            # Evaluation outputs per metric
+│   ├── config.json                     # Mapping of experiment names to model checkpoints
+│   ├── generate_sclite_inputs.py       # Generate `.ref` and `.hyp` files for sclite evaluation
+│   └── README.md
 ├── requirements.txt
 ├── LICENSE
 └── README.md
