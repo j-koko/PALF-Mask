@@ -34,15 +34,17 @@ PALF-Mask/
 
 ## What’s Included
 
-- **PALF-Mask.py**: Implements low-frequency spectrogram masking for specific phoneme classes
-- **Fine-tuning pipeline**: Full Whisper-small fine-tuning setup with support for dynamic SpecAugment
-- **Evaluation**: WER, MAPSSWE, and CER scoring with reproducible output generation
+- **PALF-Mask Implementation**: Low-frequency spectrogram masking applied to specific phonemes below defined frequency cutoffs (F0-Mask, F1-Mask, LF-Mask).
+- **Whisper Fine-tuning Pipeline**: Custom training script using the Hugging Face Trainer.
+- **Evaluation Results**: WER, CER, and MAPSSWE scores generated using the `sclite` toolkit.
+- **Preprocessing Utilities**: Tools for wTIMIT-specific audio and transcript loading, cleaning, and train/dev/test split creation.
+- **Prediction and Evaluation Tools**: Utilities for generating predictions and references across multiple models using JSON configuration, with outputs prepared for `sclite` evaluation.
 
 ---
 
 ## Status
 
-Documentation under construction - Main scripts are included and functional. Detailed module-level documentation and preprocessing tools will follow shortly.
+Documentation under construction - Main scripts are included and functional. Detailed module-level documentation will follow shortly.
 ---
 
 ## License
