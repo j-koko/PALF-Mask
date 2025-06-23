@@ -2,11 +2,12 @@
 
 This repository contains the code and experiments supporting my MSc thesis at the University of Groningen. The project introduces **phone-aware low-frequency masking (PALF-Mask)** as a data augmentation method to improve **whispered and normal speech recognition** using fine-tuned versions of OpenAI’s Whisper model.
 
-### 🔗 Hugging Face Model
+### 🔗 Hugging Face Models
 
-The final model fine-tuned with the **F0-Mask** policy is available on Hugging Face:
-
-👉 [Kokowski/whisper-small-f0-mask](https://huggingface.co/jankoko/PALF-Whisper-small)
+[F0-Mask](https://huggingface.co/jankoko/PALF-Whisper-small) • 
+[F1-Mask](https://huggingface.co/jankoko/PALF-F1-Whisper-small) • 
+[LF-Mask](https://huggingface.co/jankoko/PALF-LF-Whisper-small) • 
+[SpecAugment (baseline)](https://huggingface.co/jankoko/SpecAugment-Whisper-small)
 
 ---
 
