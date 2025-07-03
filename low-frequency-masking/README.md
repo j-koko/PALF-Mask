@@ -30,14 +30,9 @@ data_split/
 │           │   └── ...
 │           └── ...
 ├── dev/
-│   ├── normal/
-│   └── whisper/
 └── test/
-    ├── normal/
-    └── whisper/
 ```
-
-The output will mirror this structure in your specified `output_root`.
+The output will mirror this structure in your specified `output_root`, but only the train split will be processed.
 
 ---
 
