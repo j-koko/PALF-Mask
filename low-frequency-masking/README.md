@@ -11,13 +11,25 @@ This script assumes a directory structure like:
 ```
 data_split/
 ├── train/
-│ ├── normal/whisper/
+│ ├── normal/
 │ │ └── US/
-│ │ └── 101–131/
-│ │ ├── sXXXuYYYn.wav
-│ │ ├── sXXXuYYYn.TextGrid
-│ │ └── sXXXuYYYn.lab
-└── dev/
+│ │ ├── 101/
+│ │ │ ├── s101u001n.wav
+│ │ │ ├── s101u001n.TextGrid
+│ │ │ └── s101u001n.lab
+│ │ ├── 102/
+│ │ │ └── ...
+│ │ └── ...
+│ └── whisper/
+│ └── US/
+│ ├── 101/
+│ │ ├── s101u001w.wav
+│ │ ├── s101u001w.TextGrid
+│ │ └── s101u001w.lab
+│ ├── 102/
+│ │ └── ...
+│ └── ...
+├── dev/
 └── test/
 ```
 
