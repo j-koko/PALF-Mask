@@ -224,7 +224,8 @@ def main():
         refs = [normalizer(r) for r in refs]
         return {"dev_wer": wer_metric.compute(predictions=preds, references=refs)}
 
-    run_dir = os.path.join(args.output_dir, f"{args.train_mode}_{args.augset}_{args.spec_policy.lower()}")
+    spec_label = args.spec_policy.lower() if args.apply_specaugment else "no_spec"
+    run_dir = os.path.join(args.output_dir, f"{args.train_mode}_{args.augset}_{spec_label}")
     os.makedirs(run_dir, exist_ok=True)
     save_run_config(run_dir, args)
     
@@ -272,7 +273,7 @@ def main():
 
     if args.dry_run:
         batch = next(iter(trainer.get_train_dataloader()))
-        print("✓ dry-run batch shapes:", batch["input_features"].shape, batch["labels"].shape)
+        print("Successful. Dry-run batch shapes:", batch["input_features"].shape, batch["labels"].shape)
         return
         
     trainer.model.config.save_safetensors = False
