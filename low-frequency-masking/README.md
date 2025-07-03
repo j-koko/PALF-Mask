@@ -75,7 +75,7 @@ python PALF-mask.py \
   --workers 8
 ```
 
-This command applies 300 Hz masking to all voiced plosive intervals across train split and saves the output to plosives_masked/.
+This command applies 300 Hz masking to all voiced plosive frames across train split and saves the output to plosives_masked/.
 
 ## Test Mode
 To quickly check if the setup works:
