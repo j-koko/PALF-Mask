@@ -35,6 +35,10 @@ PALF-Mask/
 └── README.md
 ```
 
+## Usage Instructions
+
+Each major component of this repository (masking, preprocessing, fine-tuning, evaluation) includes its own README.md with detailed usage instructions, example commands, and input/output specifications. Please refer to those subdirectory READMEs for how to run each step of the pipeline.
+
 ## What’s Included
 
 - **PALF-Mask Implementation**: Low-frequency spectrogram masking applied to specific phonemes below defined frequency cutoffs (F0-Mask, F1-Mask, LF-Mask).
