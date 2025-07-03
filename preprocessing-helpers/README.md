@@ -29,13 +29,29 @@ This script:
 
 ---
 
-## Output Structure
+## Output Directory Structure
+
+After running the script, the output directory (`--output_dir`, default: `data_split/`) will be organized as follows:
 
 ```
 data_split/
 ├── train/
 │ ├── normal/
+│ │ └── US/
+│ │ ├── 105/
+│ │ │ ├── s105u003n.WAV
+│ │ │ └── s105u003n.lab
+│ │ ├── 106/
+│ │ │ └── ...
+│ │ └── ...
 │ └── whisper/
+│ └── US/
+│ ├── 105/
+│ │ ├── s105u004w.WAV
+│ │ └── s105u004w.lab
+│ ├── 106/
+│ │ └── ...
+│ └── ...
 ├── dev/
 │ ├── normal/
 │ └── whisper/
