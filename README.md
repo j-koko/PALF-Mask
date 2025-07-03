@@ -16,7 +16,7 @@ This repository contains the code and experiments supporting my MSc thesis at th
 ```
 PALF-Mask/
 ├── low_frequency_masking/               
-│   ├── PALF-Mask.py                     # Main masking script implementing F0/F1/LF masking
+│   ├── PALF-Mask.py                    # Main masking script implementing F0/F1/LF masking
 │   └── README.md
 ├── pre_processing_helpers/             # Data preprocessing utilities
 │   ├── preprocessing.py                # Loads wTIMIT audio and transcriptions, cleans, splits into train/dev/test
