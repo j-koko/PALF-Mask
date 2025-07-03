@@ -16,7 +16,9 @@ WIN_LENGTH = 400
 DEFAULT_THRESHOLD = 300
 # below constant is wTIMIT-specific (speaker dir names):
 VALID_SPEAKERS = [str(s) for s in range(101, 132) if s not in (113, 114, 115)] 
-SPLITS = ["train", "dev", "test"]
+# Only process train split
+SPLITS_TO_PROCESS = ["train"]
+
 
     
 PHONEME_GROUPS = {
@@ -110,7 +112,7 @@ def gather_tasks(input_root, output_root, threshold, sr, win_length, hop_length,
     count = 0
     MAX_TEST = 10
 
-    for split in SPLITS:
+    for split in SPLITS_TO_PROCESS:
         for mode in ["normal", "whisper"]:
             for speaker in VALID_SPEAKERS:
                 sp_dir = os.path.join(input_root, split, mode, "US", speaker)
