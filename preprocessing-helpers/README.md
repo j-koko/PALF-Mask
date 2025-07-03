@@ -1,4 +1,4 @@
-# Preprocessing and Metadata Generation
+# Preprocessing and Repartitioning
 
 This module provides a script for reorganizing and preprocessing audio data from the original NIST-style directory into a structured format compatible with training and augmentation pipelines (e.g., for Whisper or PALF-Mask processing). It also generates `.lab` transcription files.
 
@@ -71,7 +71,7 @@ python preprocessing.py \
 
 ### Notes
 
-- This script is intended for preprocessing and reorganizing the original dataset before training or augmentation.
+- This script is intended for preprocessing and repartitioning the original dataset to make it suitable for E2E training.
 - Only utterances with valid transcripts (from the `labels.txt` file) are processed.
 - Utterance IDs must follow the format `sXXXuYYY[n/w]`, where `XXX` is the speaker ID, `YYY` is the utterance number, and `n`/`w` indicates normal or whispered mode.
 - Subset assignment (`train`, `dev`, `test`) is hardcoded based on utterance ID:
@@ -79,6 +79,6 @@ python preprocessing.py \
   - `403` ≤ `utt_id` ≤ `427` → `dev`
   - `428` ≤ `utt_id` ≤ `452` → `test`
 - Problematic utterance IDs (e.g., corrupted or misaligned files) can be excluded by passing a plain-text list to `--problematic_ids`.
-- The script is compatible with datasets in a NIST-style directory layout and prepares output in a flat structure suitable for downstream processing or ASR training.
+- The output directory is organized by `subset/mode/region/speaker/` and includes `.WAV` audio files, `.lab` transcripts, and a `dataset_manifest.csv`. This structure is compatible with the masking script in `low_frequency_masking/PALF-Mask.py`.
 
 
