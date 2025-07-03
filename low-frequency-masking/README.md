@@ -11,26 +11,30 @@ This script assumes a directory structure like:
 ```
 data_split/
 ├── train/
-│ ├── normal/
-│ │ └── US/
-│ │ ├── 101/
-│ │ │ ├── s101u001n.wav
-│ │ │ ├── s101u001n.TextGrid
-│ │ │ └── s101u001n.lab
-│ │ ├── 102/
-│ │ │ └── ...
-│ │ └── ...
-│ └── whisper/
-│ └── US/
-│ ├── 101/
-│ │ ├── s101u001w.wav
-│ │ ├── s101u001w.TextGrid
-│ │ └── s101u001w.lab
-│ ├── 102/
-│ │ └── ...
-│ └── ...
+│   ├── normal/
+│   │   └── US/
+│   │       ├── 101/
+│   │       │   ├── s101u001n.wav
+│   │       │   ├── s101u001n.TextGrid
+│   │       │   └── s101u001n.lab
+│   │       ├── 102/
+│   │       │   └── ...
+│   │       └── ...
+│   └── whisper/
+│       └── US/
+│           ├── 101/
+│           │   ├── s101u001w.wav
+│           │   ├── s101u001w.TextGrid
+│           │   └── s101u001w.lab
+│           ├── 102/
+│           │   └── ...
+│           └── ...
 ├── dev/
+│   ├── normal/
+│   └── whisper/
 └── test/
+    ├── normal/
+    └── whisper/
 ```
 
 The output will mirror this structure in your specified `output_root`.
