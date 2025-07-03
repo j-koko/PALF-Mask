@@ -72,7 +72,7 @@ Multiple groups can be passed as a space-separated list.
 ### Basic Example
 
 ```bash
-python mask_phoneme_freqs.py \
+python PALF-mask.py \
   --input_root data_split \
   --output_root plosives_masked \
   --threshold 300 \
@@ -84,8 +84,8 @@ This command applies 300 Hz masking to all voiced plosive intervals across train
 
 ## Test Mode
 To quickly check if the setup works:
-
-```python mask_phoneme_freqs.py \
+```
+python PALF-mask.py \
   --input_root data_split \
   --output_root plosives_masked_test \
   --groups vowels \
