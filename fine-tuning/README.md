@@ -1,6 +1,7 @@
 # Whisper Fine-Tuning Script
 
-This module contains the script for fine-tuning the `openai/whisper-small` model. 
+This module contains the script for fine-tuning the `openai/whisper-small` model.
+
 ---
 
 ## Script: `finetune_whisper.py`
