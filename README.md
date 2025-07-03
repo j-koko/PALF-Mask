@@ -17,10 +17,13 @@ This repository contains the code and experiments supporting my MSc thesis at th
 PALF-Mask/
 ├── low_frequency_masking/               
 │   └── PALF-Mask.py                     # Main masking script implementing F0/F1/LF masking
+│   └── README.md
 ├── pre_processing_helpers/             # Data preprocessing utilities
 │   └── preprocessing.py                # Loads wTIMIT audio and transcriptions, cleans, splits into train/dev/test
+│   └── README.md
 ├── fine_tuning/
 │   └── finetune_whisper.py             # Whisper fine-tuning pipeline with Hugging Face Trainer
+│   └── README.md
 ├── evaluation/
 │   ├── WER/, CER/, MAPSSWE/            # Evaluation outputs per metric
 │   ├── config.json                     # Mapping of experiment names to model checkpoints
