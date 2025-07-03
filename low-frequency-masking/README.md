@@ -1,0 +1,96 @@
+# Phone-Aware Low-Frequency Masking Tool
+
+This script applies phoneme-specific low-frequency spectrogram masking to audio files using aligned phonetic annotations (`.TextGrid`).
+The masking targets specific phoneme groups (e.g., vowels or all voiced phones) and zeros out the low-frequency regions of the spectrogram within the time frames corresponding to those phonemes, below a specified frequency cutoff.
+
+---
+
+## Project Structure
+
+This script assumes a directory structure like:
+
+```
+data_split/
+├── train/
+│ ├── normal/whisper/
+│ │ └── US/
+│ │ └── 101–131/
+│ │ ├── sXXXuYYYn.wav
+│ │ ├── sXXXuYYYn.TextGrid
+│ │ └── sXXXuYYYn.lab
+└── dev/
+└── test/
+```
+
+The output will mirror this structure in your specified `output_root`.
+
+---
+
+## How It Works
+
+1. **Phoneme Intervals**: Parses TextGrid files for time-aligned phoneme intervals using the `phones` tier.
+2. **STFT**: Computes the short-time Fourier transform (STFT) of the waveform.
+3. **Masking**: Sets all frequency bins below the specified threshold (e.g., 300 Hz) to zero only during frames that overlap with target phoneme intervals.
+4. **ISTFT**: Converts the masked spectrogram back to waveform.
+5. **Output**: Saves the masked `.wav` and copies the `.lab` file (transcription).
+
+---
+
+## Supported Phoneme Groups
+
+Use the `--groups` argument to specify which group(s) to mask. Examples include:
+
+- `voiced_wtimit` (used in thesis experiments: F0-Mask / LF-Mask)
+- `vowels` (used in thesis experiments: F1-Mask)
+- `nasals`
+- `voiced_plosives`
+- `voiceless_plosives`
+- `voiced_all` (all voiced phones as in English (US) MFA dictionary v3.0.0)
+- `voiceless_all`
+
+Multiple groups can be passed as a space-separated list.
+
+---
+
+## Usage
+
+### Basic Example
+
+```bash
+python mask_phoneme_freqs.py \
+  --input_root data_split \
+  --output_root plosives_masked \
+  --threshold 300 \
+  --groups voiced_plosives \
+  --workers 8
+```
+
+This command applies 300 Hz masking to all voiced plosive intervals across train split and saves the output to plosives_masked/.
+
+## Test Mode
+To quickly check if the setup works:
+
+```python mask_phoneme_freqs.py \
+  --input_root data_split \
+  --output_root plosives_masked_test \
+  --groups vowels \
+  --test
+```
+Only a small number of files (maximum 10) will be processed.
+
+## Key Arguments
+
+| Argument           | Type     | Default   | Description                                                                 |
+|--------------------|----------|-----------|-----------------------------------------------------------------------------|
+| `--input_root`     | str      | —         | Root directory containing input `.wav` and `.TextGrid` files.               |
+| `--output_root`    | str      | —         | Output directory for masked audio and copied `.lab` files.                 |
+| `--threshold`      | int      | 300       | Frequency cutoff in Hz. Frequencies below this will be zeroed out.         |
+| `--sr`             | int      | 16000     | Sampling rate for loading audio.                                           |
+| `--n_fft`          | int      | 512       | FFT size for STFT, affecting frequency resolution.                         |
+| `--hop_length`     | int      | 160       | Hop length for STFT/ISTFT, controls time resolution.                       |
+| `--win_length`     | int      | 400       | Window length for STFT.                                                    |
+| `--workers`        | int      | 4         | Number of parallel worker processes.                                       |
+| `--groups`         | list[str]| voiced_wtimit | Space-separated phoneme groups to mask (e.g., `vowels nasals`).       |
+| `--test`           | flag     | False     | If set, runs on a small number of files for testing (max 10).              |
+
+
