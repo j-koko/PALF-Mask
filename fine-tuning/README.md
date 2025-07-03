@@ -1,32 +1,8 @@
-# Whisper Fine-Tuning Script
+## Fine-tuning Script: `finetune_whisper.py`
 
 This module contains the script for fine-tuning the `openai/whisper-small` model.
 
 ---
-
-## Script: `finetune_whisper.py`
-
-This script supports four training modes:
-
-- `wn` — Normal + whispered training set, unaugmented
-- `dup` — Duplicated training data (normal + normal) -> initally planned but not used in experiments
-- `aug` — Concatenation of original and masked data (e.g., F0-masked)
-- `spec` — Apply dynamic SpecAugment during training (policy configurable)
-
-The script automatically caches preprocessed features using Hugging Face Datasets and supports fast reloading for future runs.
-
----
-
-## Usage
-
-```bash
-python finetune_whisper.py \
-  --train_mode aug \
-  --augset plosive \
-  --spec_policy LD \
-  --apply_specaugment \
-  --output_dir results_whisper_small
-```
 
 ### Arguments
 
@@ -40,6 +16,33 @@ python finetune_whisper.py \
 | `--output_dir`         | str      | No       | `results_whisper_small`| Directory for saving checkpoints, logs, and visualizations                  |
 | `--dry_run`            | flag     | No       | `False`                | If set, performs a dry run (loads one batch, no training)                   |
 | `--max_steps`          | int      | No       | `2500`                 | Maximum number of training steps                                            |
+
+### Training Modes
+
+| Mode   | Description                                                                 |
+|--------|-----------------------------------------------------------------------------|
+| `wn`   | Uses the original training set (normal + whispered), no augmentation.       |
+| `dup`  | Doubles the training data by concatenating it with itself (normal + normal).|
+| `aug`  | Combines the original data with a preprocessed, masked version (e.g., plosive-masked). |
+| `spec` | Applies dynamic SpecAugment during training using the selected policy.      |
+
+> **Note:** The `spec` training mode uses the original training data (`train_orig`) only and **SpecAugment is applied dynamically** during training but **only if** `--apply_specaugment` is set. No augmentation is precomputed or stored in the cached dataset.
+
+> This mode should be used **exclusively for SpecAugment-only experiments**, not hybrid setups.
+
+### Augmentation Sets (`--augset`)
+
+The `--augset` argument specifies which preprocessed masked training set to use during fine-tuning.  
+Each value corresponds to a directory under `cache_prepared/` named `train_mask_<augset>`.
+
+| `--augset` Value     | Description                                                                 |
+|----------------------|-----------------------------------------------------------------------------|
+| `aug_300`            | Low-frequency masking of selected phoneme segments (e.g., voiced) below 300 Hz. |
+| `aug_1500`           | Same as above, but using a 1500 Hz cutoff.                                  |
+| `vowels_1100`        | Vowel-only masking below 1100 Hz.                                           |
+| *(any custom name)*  | Custom preprocessed dataset saved under `cache_prepared/train_mask_<name>`. |
+
+> **Note:** The value of `--augset` must match the corresponding masked dataset directory name inside `cache_prepared/`.
 
 ### Output
 
@@ -58,17 +61,68 @@ Each training run will create a dedicated subdirectory inside the specified `--o
 └── ... # Other Hugging Face model artifacts
 ```
 
-> **Note:** The subdirectory is automatically named using the pattern `<train_mode>_<augset>_<spec_policy>`, e.g., `aug_plosive_ld`.
+> **Note:** The output directory is automatically named using the pattern `<train_mode>_<augset>_<spec_label>`,  
+> where `spec_label` is the SpecAugment policy (e.g., `ld`) if `--apply_specaugment` is used, or `no_spec` otherwise.  
+> For example:
+>
+> - `aug_vowels_1100_no_spec/` → vowel-based masking, no SpecAugment  
 
 This output is fully compatible with Hugging Face’s `from_pretrained()` loading and enables reproducibility via saved configs and metrics.
 
+## Usage
 
-### Training Modes
+### Example Training Commands
 
-| Mode   | Description                                                                 |
-|--------|-----------------------------------------------------------------------------|
-| `wn`   | Uses the original training set (normal + whispered), no augmentation.       |
-| `dup`  | Doubles the training data by concatenating it with itself (normal + normal).|
-| `aug`  | Combines the original data with a preprocessed, masked version (e.g., plosive-masked). |
-| `spec` | Applies dynamic SpecAugment during training using the selected policy.      |
+#### 1. SpecAugment Baseline 
+
+```bash
+python finetune_whisper.py \
+  --train_mode spec \
+  --spec_policy LD \
+  --apply_specaugment \
+  --output_dir results_whisper_small
+```
+This setup applies SpecAugment dynamically during training using the LD policy (no masked data is used or preprocessed).
+
+#### 2. Baseline (Original Data Only, No Augmentation)
+
+```bash
+python finetune_whisper.py \
+  --train_mode wn \
+  --output_dir results_whisper_small
+```
+This configuration uses only the original wTIMIT training data (normal + whispered), with no augmentation or masking applied.
+
+#### 3. F0-Mask Only (Low-Frequency Masking, No SpecAugment)
+
+```
+python finetune_whisper.py \
+  --train_mode aug \
+  --augset aug_300 \
+  --output_dir results_whisper_small
+```
+This setup combines the original training data with a preprocessed masked version (aug_300), where frequencies below 300 Hz have been zeroed out for voiced phonemes (F0-Mask). SpecAugment is not applied.
+
+#### 4. Hybrid Augmentation: F0-Mask + SpecAugment (LB)
+
+```python finetune_whisper.py \
+  --train_mode aug \
+  --augset aug_300 \
+  --spec_policy LB \
+  --apply_specaugment \
+  --output_dir results_whisper_small
+```
+This configuration applies both F0-Mask (cached as aug_300) and SpecAugment using the LB policy.
+The training data consists of the original set combined with masked examples, and SpecAugment is applied dynamically at training time.
+
+### Notes
+
+- The script assumes the dataset is saved in Hugging Face format using `datasets.save_to_disk()`, with `"train"`, `"dev"`, and `"test"` splits.
+- Masked datasets used for `--train_mode aug` must be preprocessed and cached under `cache_prepared/train_mask_<augset>`.
+- The dev and test sets are **never augmented** and are used only for evaluation.
+- If `--apply_specaugment` is used, SpecAugment will be applied on-the-fly to each batch during training.
+- Random seed (`42`) is fixed for reproducibility across runs.
+- CO₂ tracking can be enabled by setting `CO2_TRACKING = True` at the top of the script (requires `codecarbon` library).
+- Each run is saved in a subdirectory under `--output_dir`, named according to training mode, augmentation set, and SpecAugment policy.
+
 
