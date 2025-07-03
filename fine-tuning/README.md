@@ -22,8 +22,8 @@ This module contains the script for fine-tuning the `openai/whisper-small` model
 | Mode   | Description                                                                 |
 |--------|-----------------------------------------------------------------------------|
 | `wn`   | Uses the original training set (normal + whispered), no augmentation.       |
-| `dup`  | Doubles the training data by concatenating it with itself (normal + normal).|
-| `aug`  | Combines the original data with a preprocessed, masked version (e.g., plosive-masked). |
+| `dup`  | Doubles the training data by concatenating it with itself.                  |
+| `aug`  | Combines the original data with a preprocessed, masked version (e.g., F0-masked). |
 | `spec` | Applies dynamic SpecAugment during training using the selected policy.      |
 
 > **Note:** The `spec` training mode uses the original training data (`train_orig`) only and **SpecAugment is applied dynamically** during training but **only if** `--apply_specaugment` is set. No augmentation is precomputed or stored in the cached dataset.
