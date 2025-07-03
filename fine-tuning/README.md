@@ -30,6 +30,8 @@ This module contains the script for fine-tuning the `openai/whisper-small` model
 
 > This mode should be used **exclusively for SpecAugment-only experiments**, not hybrid setups.
 
+> The `dup` training mode was initially planned but **not used** in final experiments.
+
 ### Augmentation Sets (`--augset`)
 
 The `--augset` argument specifies which preprocessed masked training set to use during fine-tuning.  
@@ -95,7 +97,7 @@ This configuration uses only the original wTIMIT training data (normal + whisper
 
 #### 3. F0-Mask Only (Low-Frequency Masking, No SpecAugment)
 
-```
+```bash
 python finetune_whisper.py \
   --train_mode aug \
   --augset aug_300 \
@@ -105,7 +107,8 @@ This setup combines the original training data with a preprocessed masked versio
 
 #### 4. Hybrid Augmentation: F0-Mask + SpecAugment (LB)
 
-```python finetune_whisper.py \
+```bash
+python finetune_whisper.py \
   --train_mode aug \
   --augset aug_300 \
   --spec_policy LB \
