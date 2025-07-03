@@ -94,7 +94,7 @@ python preprocessing.py \
   - `utt_id` ≤ 402 → `train`
   - `403` ≤ `utt_id` ≤ `427` → `dev`
   - `428` ≤ `utt_id` ≤ `452` → `test`
-- Problematic utterance IDs (e.g., corrupted or misaligned files) can be excluded by passing a plain-text list to `--problematic_ids`.
+- Problematic utterance IDs (e.g., corrupted or misaligned files) can be excluded by providing a plain text file to `--problematic_ids`, with one filename stem per line (e.g., s105u003n, without extensions). These will be skipped during processing.
 - The output directory is organized by `subset/mode/region/speaker/` and includes `.WAV` audio files, `.lab` transcripts, and a `dataset_manifest.csv`. This structure is compatible with the masking script in `low_frequency_masking/PALF-Mask.py`.
 
 
