@@ -13,7 +13,7 @@ This script:
 - Writes plain-text `.lab` files for each utterance.
 - Skips problematic utterance IDs (if provided).
 - Infers the `train`, `dev`, or `test` subset based on utterance IDs.
-- Creates a CSV manifest (`dataset_manifest.csv`) with basic metadata for all successfully processed files.
+- Creates a CSV file (`dataset_manifest.csv`) with basic metadata for all successfully processed files.
 
 ---
 
