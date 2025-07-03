@@ -29,7 +29,7 @@ PALF-Mask/
 │   ├── config.json                     # Mapping of experiment names to model checkpoints
 │   ├── generate_sclite_inputs.py       # Generate `.ref` and `.hyp` files for sclite evaluation
 │   └── README.md
-├── CITATION.cff # Machine-readable citation metadata (for GitHub)
+├── CITATION.cff                        # Machine-readable citation metadata (for GitHub)
 ├── requirements.txt
 ├── LICENSE
 └── README.md
