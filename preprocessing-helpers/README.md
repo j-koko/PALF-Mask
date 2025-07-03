@@ -1,6 +1,6 @@
 # Preprocessing and Repartitioning
 
-This module provides a script for reorganizing and preprocessing audio data from the original NIST-style directory into a structured format compatible with training and augmentation pipelines (e.g., for Whisper or PALF-Mask processing). It also generates `.lab` transcription files.
+This module provides a script for reorganizing and preprocessing audio data from the original NIST-style directory of wTIMIT into a partitioning compatible with E2E training. It also generates `.lab` transcription files.
 
 ---
 
