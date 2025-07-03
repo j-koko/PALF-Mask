@@ -37,7 +37,7 @@ PALF-Mask/
 
 ## Usage Instructions
 
-Each major component of this repository (masking, preprocessing, fine-tuning, evaluation) includes its own README.md with detailed usage instructions, example commands, and input/output specifications. Please refer to those subdirectory READMEs for how to run each step of the pipeline.
+Each major component of this repository (preprocessing, masking, fine-tuning, evaluation) includes its own README.md with detailed usage instructions, example commands, and input/output specifications. Please refer to those subdirectory READMEs for how to run each step of the pipeline.
 
 ## What’s Included
 
